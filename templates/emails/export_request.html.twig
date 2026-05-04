@@ -1,0 +1,87 @@
+{# templates/emails/demande_exportation.html.twig #}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { margin: 0; padding: 0; background-color: #f1f4f8; font-family: 'Segoe UI', Arial, sans-serif; }
+        .wrapper { width: 100%; table-layout: fixed; background-color: #f1f4f8; padding: 25px 0; }
+        .container { max-width: 650px; margin: 0 auto; background-color: #ffffff; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+
+        /* Branding Raftras */
+        .header { background-color: #2c437b; padding: 30px; text-align: center; }
+        .header h1 { color: #ffffff; margin: 0; font-size: 26px; text-transform: uppercase; letter-spacing: 2px; }
+
+        .content { padding: 40px; color: #333333; }
+        .status-badge { display: inline-block; background-color: #e8f0fe; color: #2c437b; padding: 5px 15px; border-radius: 20px; font-size: 12px; font-weight: bold; margin-bottom: 20px; }
+        .title { color: #2c437b; font-size: 22px; font-weight: bold; margin-bottom: 25px; }
+
+        /* Table de détails */
+        .details-table { width: 100%; border-collapse: collapse; }
+        .details-table td { padding: 15px 10px; border-bottom: 1px solid #edf2f7; }
+        .label { color: #718096; font-size: 13px; text-transform: uppercase; font-weight: bold; width: 200px; }
+        .value { color: #2d3748; font-size: 15px; font-weight: 500; }
+
+        .message-box { background-color: #f8fafc; border-left: 4px solid #2c437b; padding: 20px; margin-top: 15px; font-style: italic; }
+
+        /* Footer */
+        .footer { background-color: #2c437b; padding: 30px; text-align: center; color: #ffffff; font-size: 13px; line-height: 1.6; }
+        .footer-logo { font-size: 18px; font-weight: bold; margin-bottom: 10px; display: block; }
+    </style>
+</head>
+<body>
+<center class="wrapper">
+    <div class="container">
+        <div class="header">
+            <h1>Raftras</h1>
+        </div>
+
+        <div class="content">
+            <div class="status-badge">FLUX : SORTIE MARCHANDISE</div>
+            <div class="title">Nouvelle Demande d'Exportation</div>
+
+            <table class="details-table">
+                <tr>
+                    <td class="label">Entreprise Exportatrice</td>
+                    <td class="value">{{ nom_entreprise|upper }}</td>
+                </tr>
+                <tr>
+                    <td class="label">Contact Responsable</td>
+                    <td class="value">{{ email }}<br>{{ telephone }}</td>
+                </tr>
+                <tr>
+                    <td class="label">Siège Social</td>
+                    <td class="value">{{ localisation_entreprise }}</td>
+                </tr>
+                <tr>
+                    <td class="label">Origine du Départ</td>
+                    <td class="value"><strong>{{ pays_exportation }}</strong></td>
+                </tr>
+                <tr>
+                    <td class="label">Pays de Destination</td>
+                    <td class="value"><strong>{{ pays_destination }}</strong></td>
+                </tr>
+            </table>
+
+            <div style="margin-top: 30px;">
+                <span class="label">Détails de la cargaison d'exportation</span>
+                <div class="message-box">
+                    {{ description_commande|nl2br }}
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <span class="footer-logo">RAFTRAS SARL</span>
+            Hamdallaye ACI, Bamako, Mali<br>
+            Service Logistique & Transit<br>
+            <strong>Tél : +223 70 70 70 70</strong>
+            <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 11px; opacity: 0.7;">
+                Ce message contient des informations confidentielles liées à une opération de transit.
+            </div>
+        </div>
+    </div>
+</center>
+</body>
+</html>
